@@ -71,7 +71,7 @@ public class HiveCqlInputFormat extends InputFormat<MapWritableComparable, MapWr
     List<String> columns = CqlSerDe.parseColumnMapping(cassandraSplit.getColumnMapping());
 
 
-    List<Integer> readColIDs = ColumnProjectionUtils.getReadColumnIDs(jobConf);
+    ArrayList<Integer> readColIDs = ColumnProjectionUtils.getReadColumnIDs(jobConf);
 
     if (columns.size() < readColIDs.size()) {
       throw new IOException("Cannot read more columns than the given table contains.");
